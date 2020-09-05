@@ -1,0 +1,24 @@
+- platform: template
+  sensors:
+    low_battery_entities:
+      friendly_name: "Low Battery"
+      entity_id: sensor.time
+      value_template: >
+        {%- set threshold = 40 -%}
+        {%- set domains = ['light', 'switch', 'sensor', 'zwave', 'lock'] -%}
+        {%- for domain in domains -%}
+        {%- for item in states[domain] if ((not item.entity_id in states.group.exclude_from_battery.attributes.entity_id and item.entity_id != "sensor.low_battery_entities" and item.entity_id != "sensor.low_battery_warning") and ( (item.attributes.battery_level is defined and item.attributes['battery_level'] | int < threshold) 
+        or ('battery' in item.name | lower and ((item.state | int < threshold and item.state|int != 0) or item.state | lower == "low" or item.state | lower == "unknown")))) -%}
+        {{ item.attributes.friendly_name }}{%- if not loop.last %}, {% endif -%}
+        {%- endfor -%}
+        {%- endfor -%}
+- platform: template
+  sensors:
+     low_battery_warning:
+            friendly_name: 'Low Battery Warning'
+            entity_id: sensor.low_battery_entities
+            value_template: >-
+              {%- if (states.sensor.low_battery_entities.state == '' or states.sensor.low_battery_entities.state == 'unknown') -%} {{"ok"}}
+              {%- else -%} 
+                {{"Critical"}} 
+              {%- endif -%}        
