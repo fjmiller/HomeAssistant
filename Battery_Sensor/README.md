@@ -1,19 +1,18 @@
 # Battery Sensor
-This configuration keeps track dynamically of all devices with battery in the name or battery_level as an attribute and reports any device that is currently below the provided threshold.  It includes template sensors, group for exluding devices, a lovelace card to display entities in error and a NodeRed flow for notifications.  Much of the core came from this thread.![HomeAssistant Forum](https://community.home-assistant.io/t/howto-create-battery-alert-without-creating-a-template-for-every-device/30576/5)
+This configuration keeps track dynamically of all devices with battery in the name or battery_level as an attribute and reports any device that is currently below the provided threshold.  It includes template sensors, group for exluding devices, a lovelace card to display entities in error and a NodeRed flow for notifications.  Much of the core came from this thread. [HomeAssistant Forum](https://community.home-assistant.io/t/howto-create-battery-alert-without-creating-a-template-for-every-device/30576/5)
 
 # How To Install
 ## Dependencies
   * None
 
 ## Install Process  
-  * Copy the yaml from sensors.yaml and place it in your configuration.yaml file under the sensors: heading.
-  ** This will create 2 entities, sensor.low_battery_entities and sensor.low_battery_warning.
+  * Copy the yaml from sensors.yaml and place it in your configuration.yaml file under the sensors: heading.  This will create 2 entities, sensor.low_battery_entities and sensor.low_battery_warning.
   
   * configure group.exclude_from_battery for entities that this process should disregard.
-  '
+  `
   exclude_from_battery:
     - sensor.iphone_battery_level
-  '
+  `
   
   Optional:
   * Copy the contents of EntitiesWithLowBattery.lovelace to create a markup card which will display the entities with issues
