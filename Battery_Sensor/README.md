@@ -21,11 +21,14 @@ This configuration keeps track dynamically of all devices with battery in the na
 # Configuration
 ## Changing the reporting Threshold
    The reporting threshold is defined on the sensor.  In the sensors you added to configuration.yaml edit the threshold value!
-   '
+   ```
      {%- set threshold = 40 -%}
-   '
+   ```
 ## Add devices to ignore
    Devices to ignore are part of the group exclude_from_battery.  Add your entities to this array in groups.yaml.
 
 ## Lovelace Card
    The lovelace card can be customized to whatever look and feel you like.  It is currently and conditional card and will only display when their are errors to report.
+
+## Notifications
+   The notifications flow was created in Node Red.  Updated the Notify and message blocks to meet your specific configuration.  The default flow uses the iOS app Notifications.
