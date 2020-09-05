@@ -9,10 +9,10 @@ This configuration keeps track dynamically of all devices with battery in the na
   * Copy the yaml from sensors.yaml and place it in your configuration.yaml file under the sensors: heading.  This will create 2 entities, sensor.low_battery_entities and sensor.low_battery_warning.
   
   * configure group.exclude_from_battery for entities that this process should disregard.
-  `
+  ```
   exclude_from_battery:
     - sensor.iphone_battery_level
-  `
+  ```
   
   Optional:
   * Copy the contents of EntitiesWithLowBattery.lovelace to create a markup card which will display the entities with issues
