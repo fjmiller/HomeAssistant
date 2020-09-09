@@ -4,7 +4,7 @@ This configuration keeps track dynamically of all devices with entities reportin
 # How To Install
 ## Dependencies
   * Node-Red for notifications or write your own :-)
-    This uses an input boolean that tracks if Home Assistant started.  MY logic for this is at [Home Assistant Restarted Flow](../HomeAssistant_Start) remove or replace with your logic for this.
+    This uses an input boolean that tracks if Home Assistant started.  My logic for this is at [Home Assistant Restarted Flow](../HomeAssistant_Start). You can remove or replace with your logic for this if you have another way to handle it.
 
 ## Install Process  
   * Copy the yaml from sensors.yaml and place it in your configuration.yaml file under the sensors: heading.  This will create a sensor called entities_with_issues.  The state field will equal the number of entities in error and an attribute entities is a cmma delimited list of entities in error
