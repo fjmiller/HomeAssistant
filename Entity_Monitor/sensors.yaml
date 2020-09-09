@@ -2,7 +2,6 @@
   sensors:
     entities_with_issues:
       friendly_name: "Entities With Issues"
-      entity_id: sensor.time
       value_template: >-
         {%- set domains = ['light', 'switch', 'sensor', 'zwave', 'lock'] -%}
         {%- set count = namespace(value=0) -%}
