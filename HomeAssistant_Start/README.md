@@ -1,5 +1,5 @@
 # Home Assistant Started
-This configuration keeps track of recent Home Assistant Start events through an input_boolean.  This is useful for checking in Node-Red Flows.
+This configuration keeps track of recent Home Assistant Start events through an input_boolean.  This is useful for triggering or checking in Node-Red Flows.
 
 # How To Install
 ## Dependencies
