@@ -7,27 +7,18 @@ Create a group that changes state to on or off if the home is occupied inclduing
     This uses an input boolean that tracks if Home Assistant started.  remove or replace with your logic for this.
 
 ## Install Process  
-  * Copy the yaml from sensors.yaml and place it in your configuration.yaml file under the sensors: heading.  This will create a sensor called entities_with_issues.  The state field will equal the number of entities in error and an attribute entities is a cmma delimited list of entities in error
+  * Copy the yaml from input_booleans.yaml and place it in your configuration.yaml file under the input_booleans: heading.  This will create a sensor called guest_presence that will be used to toggle the override. 
 
-  * Copy the automation from automations.yaml and place it in your automations.yaml file.  This will control the frequency the sensor is updated.  By default we are updating every minute.
-  
-  * Create a group called entities_exclude_from_monitoring.  This group is an array of entities you want to disregard from this process.
-  ```
-  entities_exclude_from_monitoring:
-    name: "Entities to exclude from alerting on bad status"
-    - switch.test_switch
-  ```
+  * Copy the the template from sensors.yaml and place it in your configuration.yaml file under the sensors: heading.  This will create a sensor which updates state based on the input boolean.  This keeps the state values in sync with the person presence which is required for the group to turn on/off correcty.
+
+  * copy the group from groups.yaml to your groups.yaml file.  Added any entries for persons you would like to track.
   
   Optional:
-  * Copy the contents of EntitiesWithIssues.lovelace to create a markup card which will display the entities with issues
-  * Import the nodered flow from EntitiesWithIssueNotification.NodeRed and customize any messaging and notifications
+  * Copy the contents of Presence_CArd.lovelace to create a markup card which will display the input boolean and home occupied in a glance card.  You can also add the entities for persons and they will display when they are home.
 
 # Configuration
-## Add devices to ignore
-   Devices to ignore are part of the group entities_exclude_from_monitoring:.  Add your entities to this array in groups.yaml.
+## Addd people to track to the group
+   Update group.home_occupied with all the person. entities you are going to track.  Keep the sensor.guest_presence to use the Guest Override.
 
 ## Lovelace Card
-   The lovelace card can be customized to whatever look and feel you like.  It is currently and conditional card and will only display when their are errors to report.
-
-## Notifications
-   The notifications flow was created in Node Red.  Updated the Notify and message blocks to meet your specific configuration.  The default flow uses the iOS app Notifications.
+   The lovelace card can be customized to whatever look and feel you like.  It is currently a glance card that displays the home occupied and guest presence state and allows you to toggle guest presence.  You can add your person entities to it and they will display if they are home.

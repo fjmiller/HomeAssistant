@@ -1,0 +1,5 @@
+- platform: template
+  sensors:
+    guest_presence:
+      friendly_name: "Guest Presence"
+      value_template: "{% if is_state('input_boolean.guest_presence', 'on') %}home{% else %}away{% endif %}"

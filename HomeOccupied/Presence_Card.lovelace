@@ -1,0 +1,23 @@
+card:
+  show_empty: false
+  show_state: false
+  title: Who's Home
+  type: glance
+entities:
+  - entity: person.test
+  - entity: input_boolean.guest_presence
+    tap_action:
+      action: toggle
+  - entity: group.home_occupied
+    tap_action:
+      action: toggle
+state_filter:
+  - Home
+  - home
+  - attribute: friendly_name
+    operator: ==
+    value: House Guests
+  - attribute: friendly_name
+    operator: ==
+    value: Home Occupied
+type: entity-filter

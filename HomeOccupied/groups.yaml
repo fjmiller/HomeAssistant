@@ -1,0 +1,6 @@
+home_occupied:
+  icon: mdi:home
+  name: "Home Occupied" 
+  entities:
+    - person.test
+    - sensor.guest_presence 
