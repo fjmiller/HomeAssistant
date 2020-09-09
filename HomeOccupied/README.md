@@ -1,5 +1,5 @@
 # Home Occupied
-Create a group that changes state to on or off if the home is occupied including person tracking and an options for guest presence override.
+Create a group that changes state to home or away if the home is occupied including person tracking and an options for guest presence override.
 
 # How To Install
 ## Dependencies
