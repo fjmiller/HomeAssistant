@@ -1,0 +1,16 @@
+- id: '1594838687867'
+  alias: Notify Node Red on HomeAssistant Restart
+  description: ''
+  trigger:
+  - event: start
+    platform: homeassistant
+  condition: []
+  action:
+  - delay: 00:01:00
+  - data: {}
+    entity_id: input_boolean.hass_started
+    service: input_boolean.turn_on
+  - delay: 00:00:10
+  - data: {}
+    entity_id: input_boolean.hass_started
+    service: input_boolean.turn_off

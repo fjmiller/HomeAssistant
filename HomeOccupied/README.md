@@ -1,5 +1,5 @@
-# Entity Health Check
-This configuration keeps track dynamically of all devices with entities reporting state as unknown, unavailable or dead.  It includes template sensors, group for exluding devices, a lovelace card to display entities in error and a NodeRed flow for notifications.  
+# Home Occupied
+Create a group that changes state to on or off if the home is occupied inclduing person tracking and an options for guest presence override.
 
 # How To Install
 ## Dependencies
