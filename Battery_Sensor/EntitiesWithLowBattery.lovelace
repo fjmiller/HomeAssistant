@@ -1,11 +1,16 @@
 card:
-  content: |
-    <h1>Entities with Low Battery</h1>
-        {% for l in states('sensor.low_battery_entities').split(',') %}
-      - {{ l }}
+  content: >
+    <h3> {{states('sensor.low_battery_entities') }} Entities with Battery Below
+    Threshold</h3>
+
+
+    {% for l in
+
+    states.sensor.low_battery_entities.attributes.entities.split(',') %}
+      {% if l != "" %} - {{ l }}{% endif %}   
     {%- endfor %}
   type: markdown
 conditions:
-  - entity: sensor.low_battery_warning
-    state_not: ok
+  - entity: sensor.low_battery_entities
+    state_not: '0'
 type: conditional

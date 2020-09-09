@@ -6,8 +6,10 @@ This configuration keeps track dynamically of all devices with battery in the na
   * None
 
 ## Install Process  
-  * Copy the yaml from sensors.yaml and place it in your configuration.yaml file under the sensors: heading.  This will create 2 entities, sensor.low_battery_entities and sensor.low_battery_warning.
+  * Copy the yaml from sensors.yaml and place it in your configuration.yaml file under the sensors: heading.  This will create sensor.low_battery_entities.  The state will be the number of entities in error state with an attribute of entities, a comma delimited list of the entity_id's.
   
+  * Copy the automations.yaml and place it in your automations.ayaml.  This will control the frequence the sensor will check each device.
+
   * configure group.exclude_from_battery for entities that this process should disregard.
   ```
   exclude_from_battery:
