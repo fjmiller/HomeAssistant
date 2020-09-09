@@ -1,0 +1,22 @@
+- platform: template
+  sensors:
+    entities_with_issues:
+      friendly_name: "Entities With Issues"
+      entity_id: sensor.time
+      value_template: >-
+        {%- set domains = ['light', 'switch', 'sensor', 'zwave', 'lock'] -%}
+        {%- set count = namespace(value=0) -%}
+        {%- for domain in domains -%}
+        {%- for item in states[domain] if ( (not (item.entity_id in states.group.entities_exclude_from_monitoring.attributes.entity_id)) and (item.state | lower == "unavailable" or item.state| lower == "unknown" or item.state | lower == "dead") ) -%}
+        {%- set count.value = count.value + 1 -%}  
+        {%- endfor -%}
+        {%- endfor -%}
+        {{ count.value }}    
+      attribute_templates:
+        entities: >-
+          {%- set domains = ['light', 'switch', 'sensor', 'zwave', 'lock'] -%}
+          {%- for domain in domains -%}
+          {%- for item in states[domain] if ( (not (item.entity_id in states.group.entities_exclude_from_monitoring.attributes.entity_id)) and (item.state | lower == "unavailable" or item.state| lower == "unknown" or item.state | lower == "dead") ) -%}
+            {{ item.entity_id }},
+          {%- endfor -%}
+          {%- endfor -%}    

@@ -1,0 +1,14 @@
+- id: '1599654319526'
+  alias: Check for Entities with Issues
+  description: ''
+  trigger:
+  - hours: '0'
+    minutes: '1'
+    platform: time_pattern
+    seconds: '0'
+  condition: []
+  action:
+  - data: {}
+    entity_id: sensor.entities_with_issues
+    service: homeassistant.update_entity
+  mode: single

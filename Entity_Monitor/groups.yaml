@@ -1,0 +1,4 @@
+entities_exclude_from_monitoring:
+  name: "Entities to exclude from alerting on bad status"
+  entities:
+    - switch.test_switch

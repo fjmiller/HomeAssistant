@@ -4,3 +4,4 @@
 
   # Configurations
 * [Low Battery Notifications](/Battery_Sensor): Get notified in Lovelace or through the notification system when device battery levels drop below a threshold.
+* [Entity Monitor](/Entity_Monitor): Get notified in Lovelace or through the notificaiotn system when an entity is unknown, unavailable or dead
