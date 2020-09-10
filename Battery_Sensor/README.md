@@ -8,7 +8,7 @@ This configuration keeps track dynamically of all devices with battery in the na
 ## Install Process  
   * Copy the yaml from sensors.yaml and place it in your configuration.yaml file under the sensors: heading.  This will create sensor.low_battery_entities.  The state will be the number of entities in error state with an attribute of entities, a comma delimited list of the entity_id's.
   
-  * Copy the automations.yaml and place it in your automations.ayaml.  This will control the frequence the sensor will check each device.
+  * Copy the automations.yaml and place it in your automations.yaml.  This will control the frequency the sensor will check each device.
 
   * configure group.exclude_from_battery for entities that this process should disregard.
   ```
@@ -24,8 +24,26 @@ This configuration keeps track dynamically of all devices with battery in the na
 ## Changing the reporting Threshold
    The reporting threshold is defined on the sensor.  In the sensors you added to configuration.yaml edit the threshold value!
    ```
-     {%- set threshold = 40 -%}
+     {%- set threshold = 40 -%} 
    ```
+## changing the test frequency
+   In Automations.yaml or thorugh the UI modify the hours, minutes and seconds the automation runs.
+   
+   ```
+     alias: Check Battery State
+  description: ''
+  trigger:
+  - hours: '0'
+    minutes: '1'
+    platform: time_pattern
+    seconds: '0'
+  condition: []
+  action:
+  - data: {}
+    entity_id: sensor.low_battery_entities
+    service: homeassistant.update_entity
+  mode: single
+  ```
 ## Add devices to ignore
    Devices to ignore are part of the group exclude_from_battery.  Add your entities to this array in groups.yaml.
 
