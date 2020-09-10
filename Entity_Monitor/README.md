@@ -1,5 +1,5 @@
 # Entity Health Check
-This configuration keeps track dynamically of all devices with entities reporting state as unknown, unavailable or dead.  It includes template sensors, group for exluding devices, a lovelace card to display entities in error and a NodeRed flow for notifications.  
+This configuration keeps track dynamically of all devices with entities reporting state as unknown, unavailable or dead.  It includes template sensors, a group for exluding devices, a lovelace card to display entities in error and a NodeRed flow for notifications.  
 
 # How To Install
 ## Dependencies
@@ -7,7 +7,7 @@ This configuration keeps track dynamically of all devices with entities reportin
     This uses an input boolean that tracks if Home Assistant started.  My logic for this is at [Home Assistant Restarted Flow](../HomeAssistant_Start). You can remove or replace with your logic for this if you have another way to handle it.
 
 ## Install Process  
-  * Copy the yaml from sensors.yaml and place it in your configuration.yaml file under the sensors: heading.  This will create a sensor called entities_with_issues.  The state field will equal the number of entities in error and an attribute entities is a cmma delimited list of entities in error
+  * Copy the yaml from sensors.yaml and place it in your configuration.yaml file under the sensors: heading.  This will create a sensor called entities_with_issues.  The state field will equal the number of entities in error and an attribute entities is a comma delimited list of entities in error
 
   * Copy the automation from automations.yaml and place it in your automations.yaml file.  This will control the frequency the sensor is updated.  By default we are updating every minute.
   
@@ -27,7 +27,7 @@ This configuration keeps track dynamically of all devices with entities reportin
    Devices to ignore are part of the group entities_exclude_from_monitoring:.  Add your entities to this array in groups.yaml.
 
 ## Lovelace Card
-   The lovelace card can be customized to whatever look and feel you like.  It is currently and conditional card and will only display when their are errors to report.
+   The lovelace card can be customized to whatever look and feel you like.  It is currently and conditional card and will only display when their are errors to report ie: sensor.entities_with_issues.state > 0.
 
 ## Notifications
    The notifications flow was created in Node Red.  Updated the Notify and message blocks to meet your specific configuration.  The default flow uses the iOS app Notifications.
