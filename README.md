@@ -10,5 +10,5 @@
 
 
 If you are looking for more automations I have Node-Red Flows on the project [HomeAssistant_NodeRed](https://github.com/fjmiller/HomeAssistant_NodeRed) including:
-* [GE DoubleTab Switch Timer](https://github.com/fjmiller/HomeAssistant_NodeRed/tree/master/GE_DoubleTapSwitch_Timer)
+* [GE DoubleTap Switch Timer](https://github.com/fjmiller/HomeAssistant_NodeRed/tree/master/GE_DoubleTapSwitch_Timer)
 * [Alexa Timer Notifications](https://github.com/fjmiller/HomeAssistant_NodeRed/tree/master/Alexa_Timer_Notification)
