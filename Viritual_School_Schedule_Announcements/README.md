@@ -49,10 +49,19 @@
 
   #alexa
   ```
-  *Adding additional text after the subject can be done by adding Offset or Time tags in the body of the event.  For example:
+  * Adding additional text after the subject can be done by adding Offset or Time tags in the body of the event.  For example:
   ```
   #alexa
 Offset: Don't foget to brush your teeth and be ready!
 Time: Have a wonderful day!
   ```
 
+## Changing the message and sounds
+   You can change the sounds and messaing in the node red flows.  You will find the soundbank links in a variable in the top of both Alexa Functions.  The messages that are spoken are also in variables with the dynamic information tagged.  Update these nodes to suit your needs.
+```
+soundBankSound = "soundbank://soundlibrary/home/amzn_sfx_doorbell_chime_02"
+spaceBetweenSoundandTTS="1s"
+speechString="<speak><audio src=\"{soundbank}\"/><break time=\"{spacebetween}\" />{message}</speak>"
+message="{diff} minutes until " + msg.data.attributes.message + "<break time=\"{spacebetween}\" />"
+
+```
