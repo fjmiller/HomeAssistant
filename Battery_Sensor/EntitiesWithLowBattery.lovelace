@@ -1,16 +1,14 @@
 card:
-  content: >
-    <h3> {{states('sensor.low_battery_entities') }} Entities with Battery Below
-    Threshold</h3>
-
-
-    {% for l in
-
-    states.sensor.low_battery_entities.attributes.entities.split(',') %}
-      {% if l != "" %} - {{ l }}{% endif %}   
-    {%- endfor %}
+  content: |
+    <h3> {{states('sensor.entities_with_issues') }} Entities with Issues</h3>
+      <table>
+     {% set arrayValue = states.sensor.entities_with_issues.attributes.entities | from_json %}
+     {% for entity in arrayValue   %} 
+      <TR><Td aligh="left">{{ entity[1].friendly_name }}</td>  <td align="right">{{ entity[1].state }} </td></tr> 
+     {%- endfor %}
+     </table>
   type: markdown
 conditions:
-  - entity: sensor.low_battery_entities
+  - entity: sensor.entities_with_issues
     state_not: '0'
 type: conditional
