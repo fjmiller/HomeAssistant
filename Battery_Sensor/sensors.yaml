@@ -16,10 +16,14 @@
         attribute_templates:   
           entities: >-
             {%- set threshold = 40 -%}
+            {%- set outputString = namespace(value='[') -%}
             {%- set domains = ['light', 'switch', 'sensor', 'zwave', 'lock'] -%}
             {%- for domain in domains -%}
             {%- for item in states[domain] if ((not item.entity_id in states.group.exclude_from_battery.attributes.entity_id and item.entity_id != "sensor.low_battery_entities" and item.entity_id != "sensor.low_battery_warning") and ( (item.attributes.battery_level is defined and item.attributes['battery_level'] | int < threshold) 
             or ('battery' in item.name | lower and ((item.state | int < threshold and item.state|int != 0) or item.state | lower == "low" or item.state | lower == "unknown")))) -%}
-            {{ item.entity_id }}{%- if not loop.last %}, {% endif -%}
+            {%-  set outputString.value = outputString.value + '["' + item.entity_id + '",{"friendly_name": "' + item.attributes.friendly_name + '","state":"' + item.state + '"}],' -%}
             {%- endfor -%}
             {%- endfor -%}
+            {%- set outputString.value = outputString.value[:-1] -%}
+            {%- set outputString.value = outputString.value + ']' -%}
+            {{ outputString.value }}

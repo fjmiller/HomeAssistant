@@ -2,10 +2,10 @@
   alias: Check for Entities with Issues
   description: ''
   trigger:
-  - hours: '0'
-    minutes: '1'
+  - hours: '*'
+    minutes: '/1'
     platform: time_pattern
-    seconds: '0'
+    seconds: '*'
   condition: []
   action:
   - data: {}
