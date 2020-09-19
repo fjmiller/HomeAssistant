@@ -2,10 +2,8 @@
   alias: Check Battery State
   description: ''
   trigger:
-  - hours: '*'
-    minutes: '/1'
+  - minutes: '/1'
     platform: time_pattern
-    seconds: '*'
   condition: []
   action:
   - data: {}
