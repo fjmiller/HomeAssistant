@@ -34,7 +34,7 @@ This configuration keeps track dynamically of all devices with battery in the na
   description: ''
   trigger:
   - hours: '0'
-    minutes: '1'
+    minutes: '/1'
     platform: time_pattern
     seconds: '0'
   condition: []
