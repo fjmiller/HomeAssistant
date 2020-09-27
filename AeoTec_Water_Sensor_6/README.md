@@ -8,7 +8,7 @@ This configuration manged the alerting and dashboarding of the [AeoTec Water Sen
   
 
 ## Install Process  
-  * Copy the yaml from sensors.yaml and place it in your configuration.yaml file under the sensors: heading.  This will create sensor for the new combined sensor.  You will need to name it and update the tracked sensors to be the 2 binary sensors created by your Aeotec Water Sensor 6 installation].  The state will be "Wet" or "Dry" with an icon of mdi:water-off or mdi:water-alert depending on the state.  
+  * Copy the yaml from sensors.yaml and place it in your configuration.yaml file under the sensors: heading.  This will create sensor for the new combined sensor.  You will need to name it and update the tracked sensors to be the 2 binary sensors created by your Aeotec Water Sensor 6 installation.  The state will be "Wet" or "Dry" with an icon of mdi:water-off or mdi:water-alert depending on the state.  
   
   * Copy the contents of the Lovelace card to a manual card and replace the entity with your leak detector or a list of leak detector's.
 
