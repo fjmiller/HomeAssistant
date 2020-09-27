@@ -1,0 +1,17 @@
+- platform: template
+  sensors:
+     leak_detector_entity_name:
+        friendly_name: "Leak Detector"
+        value_template: >-
+               {% if is_state("binary_sensor.detector_leak","on") or is_state("binary_sensor.detector_leak_2","on") -%}
+                    Wet
+               {%- else -%}
+                    Dry
+                {%- endif %}   
+        attribute_templates:
+          icon: >-
+            {% if is_state("binary_sensor.detector_leak","on") or is_state("binary_sensor.detector_leak_2","on") -%}
+                mdi:water-alert
+             {%- else -%}
+                 mdi:water-off
+             {%- endif %}       

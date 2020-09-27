@@ -1,0 +1,8 @@
+card:
+  title: Leak Health
+  type: entities
+entities:
+  - entity: sensor.leak_detector_entity_name
+state_filter:
+  - Wet
+type: entity-filter
