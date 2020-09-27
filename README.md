@@ -8,7 +8,7 @@
 * [Home Occupied](/HomeOccupied): Track whether your home is occupied or not including an override for guest presence.
 * [Home Assistant Started](/HomeAssistant_Start): toggle an input boolean when Home Assistant starts.  Useful for triggering Node-Red Flows and checking to see if the system just started.
 * [Virtual School Announcements](https://github.com/fjmiller/HomeAssistant/tree/master/Viritual_School_Schedule_Announcements) : Reads events in a Google Calendar and Announce them via Alexa for early warnings and on-times.  Currently used for keeping track of the Virtual School Schedule for my child and letting him know when he needs to be on Zoom!  Home Assistant helping with Covid!!
-* [Aeotec Water Sensor 6](/AeoTec_Water_Sensor_6)
+* [Aeotec Water Sensor 6](/AeoTec_Water_Sensor_6) : Creates custom template sensor to combine the leak state into "Wet/Dry" with an icon for displaying in Lovelace or alerting.  Includes a NodeRed flow and a state-filtered lovelace card.
 
 
 
