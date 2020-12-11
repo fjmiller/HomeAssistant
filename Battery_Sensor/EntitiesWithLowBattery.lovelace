@@ -2,7 +2,7 @@ card:
   content: >
     <h3> {{states('sensor.low_battery_entities') }} Entities with Battery Below
     Threshold</h3> <table>  {% set arrayValue =
-    states.sensor.low_battery_entities.attributes.entities | from_json %}
+    states.sensor.low_battery_entities.attributes.entities  %}
     </table> {% for entity in arrayValue %} 
       <TR><Td aligh="left">{{ entity[1].friendly_name }}</td>  <td align="right">{{ entity[1].state }} </td></tr> 
      {%- endfor %}

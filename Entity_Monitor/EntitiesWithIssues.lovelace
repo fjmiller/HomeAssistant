@@ -1,11 +1,12 @@
 card:
-  content: >
+  content: |
     <h3> {{states('sensor.entities_with_issues') }} Entities with Issues</h3>
-
-    {% for l in
-    states.sensor.entities_with_issues.attributes.entities.split(',') %}
-      {% if l != "" %} - {{ l }}{% endif %}   
-    {%- endfor %}
+      <table>
+     {% set arrayValue = states.sensor.entities_with_issues.attributes.entities  %}
+     {% for entity in arrayValue   %} 
+      <TR><Td aligh="left">{{ entity[1].friendly_name }}</td>  <td align="right">{{ entity[1].state }} </td></tr> 
+     {%- endfor %}
+     </table>
   type: markdown
 conditions:
   - entity: sensor.entities_with_issues
